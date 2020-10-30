@@ -7,13 +7,7 @@ import PokemonList from './components/PokemonList';
 import TypeList from './components/TypeList';
 import PokemonDetail from './components/PokemonDetail';
 
-import axios from 'axios';
-
 export default class App extends Component {
-  getApi() {
-    axios.get('https://pokeapi.co/api/v2/pokemon/ditto');
-  }
-
   render() {
     return (
       <Router>
@@ -40,12 +34,13 @@ export default class App extends Component {
             ></Route>
             <Route
               exact
-              path='/detailed'
-              render={(props) => (
+              path='/pokemon/:id'
+              component={PokemonDetail}
+              /*render={(props) => (
                 <React.Fragment>
                   <PokemonDetail />
                 </React.Fragment>
-              )}
+              )}*/
             ></Route>
           </div>
         </div>
